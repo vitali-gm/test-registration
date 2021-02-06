@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return redirect('user-list');
+    return redirect('user-registration');
 });
 
 Route::get('user-registration', [UserController::class, 'registration'])
