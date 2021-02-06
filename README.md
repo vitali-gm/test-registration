@@ -3,7 +3,7 @@
 ```bash
 $ git clone https://github.com/vitali-gm/test-registration.git
 $ cd test-registration
-$ cp .env.sample .env
+$ cp .env.exaple .env
 $ nano .env
 ```
 ### Set your data
