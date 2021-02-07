@@ -20,5 +20,3 @@ Route::post('user-create', [UserController::class, 'store'])
 Route::get('user-activation/{token}', [UserController::class, 'activated'])
     ->name('user-activation');
 
-Route::get('send', [UserController::class, 'send'])
-    ->name('send');
