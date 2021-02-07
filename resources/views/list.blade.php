@@ -5,6 +5,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-6 offset-md-3 col-sm-12">
+            <h3>List users</h3>
             @if (session('message'))
                 <div class="alert alert-{{session('status')}}">
                     {{session('message')}}
