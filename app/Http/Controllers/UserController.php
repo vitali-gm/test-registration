@@ -5,11 +5,9 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\UserCreateRequest;
-use App\Mail\UserEmail;
 use App\Models\User;
 use App\Process\UserActivate;
 use App\Process\UserCreate;
-use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -27,7 +25,7 @@ class UserController extends Controller
     public function store(UserCreate $process, UserCreateRequest $request)
     {
         $properties = $process->handle($request->all());
-        return redirect($properties->action)->withErrors($properties->errors);
+        return redirect($properties->action)->with($properties->info)->withErrors($properties->errors);
     }
 
     public function activated(UserActivate $process, string $token)

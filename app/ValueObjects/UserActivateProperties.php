@@ -4,7 +4,7 @@
 namespace App\ValueObjects;
 
 
-class UserActivateProperties
+class UserActivateProperties extends ValueObject
 {
     /**
      * @var string

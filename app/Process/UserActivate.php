@@ -28,18 +28,25 @@ class UserActivate
             ->first();
         if ($user) {
             if ($user->is_active) {
-                $this->properties->message = "$user->name, your user was previously activated";
-                $this->properties->status = 'warning';
+                $this->properties->fillProperties([
+                    'message' => "$user->name, your user was previously activated",
+                    'status' => 'warning'
+                ]);
             } else {
                 $user->is_active = true;
                 $user->activated_at = Carbon::now();
                 $user->save();
-                $this->properties->message = "$user->name successfully activated";
-                $this->properties->status = 'success';
+
+                $this->properties->fillProperties([
+                    'message' => "$user->name successfully activated",
+                    'status' => 'success'
+                ]);
             }
         } else {
-            $this->properties->message = 'User not found';
-            $this->properties->status = 'danger';
+            $this->properties->fillProperties([
+                'message' => 'User not found',
+                'status' => 'danger'
+            ]);
         }
 
         return $this->properties;

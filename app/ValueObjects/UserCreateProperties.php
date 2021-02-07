@@ -4,7 +4,7 @@
 namespace App\ValueObjects;
 
 
-class UserCreateProperties
+class UserCreateProperties extends ValueObject
 {
     /**
      * @var string
@@ -15,4 +15,9 @@ class UserCreateProperties
      * @var array
      */
     public $errors;
+
+    /**
+     * @var array
+     */
+    public $info;
 }

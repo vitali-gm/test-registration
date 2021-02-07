@@ -27,14 +27,19 @@ class UserCreate
                 'email' => $request['email']
             ]);
         if ($user->exists) {
-            $this->properties->action = 'user-registration';
-            $this->properties->errors = ['exist_email' => 'User exists'];
+            $this->properties->fillProperties([
+                'action' => 'user-registration',
+                'errors' => ['exist_email' => 'User exists']
+            ]);
         } else {
             $user->fill($request);
             $user->save();
 
-            $this->properties->action = 'user-list';
-            $this->properties->errors = [];
+            $this->properties->fillProperties([
+                'action' => 'user-list',
+                'info' => ['message' => 'Check your email for user activation', 'status' => 'success'],
+                'errors' => []
+            ]);
         }
 
         return $this->properties;
