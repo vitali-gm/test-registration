@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-6 offset-3">
+        <div class="col-md-6 offset-md-3 col-sm-12">
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
